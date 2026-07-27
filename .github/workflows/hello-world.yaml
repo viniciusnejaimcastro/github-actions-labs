@@ -1,0 +1,42 @@
+---
+name: Hello World
+
+"on":
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  hello-world:
+
+    name: Hello World Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display information
+        run: |
+          echo "================================"
+          echo " GitHub Actions is running"
+          echo " Repository: github-actions-labs"
+          echo " Author: Vinicius Castro"
+          echo "================================"
+
+      - name: Show environment
+        run: |
+          echo "Runner OS:"
+          uname -a
+
+          echo ""
+          echo "Git version:"
+          git --version
+
+          echo ""
+          echo "Repository files:"
+          ls -la
